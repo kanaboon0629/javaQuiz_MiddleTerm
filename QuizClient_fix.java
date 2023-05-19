@@ -1,4 +1,3 @@
-// QuizClient.java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -109,7 +108,7 @@ public class QuizClient_fix extends Application {
               if (questionCount > 5) {
                 questionArea.setText("全てのクイズが終了しました！あなたの最終得点は" + score +"点です。");
 
-                //回答入力フィールドとスタートボタンが無効
+                //回答入力フィールドとスタートボタンが無効化
                 answerField.setDisable(true);
                 startButton.setDisable(true);
 
@@ -118,11 +117,20 @@ public class QuizClient_fix extends Application {
                 //"QUESTION_s"以降11文字目から)の問題のテキストが表示
                 questionArea.setText(questionCount+"問目\n"+message.substring(11));
                 answerField.setPromptText("Enter your answer....");
+                
+                //回答入力フィールドとスタートボタンを有効化
+                answerField.setDisable(false);
+                startButton.setDisable(false);
 
               }
 
               //受信したメッセージが"CORRECT_s  "で始まる場合
             } else if (message.startsWith("CORRECT_s ")) {
+              
+              //回答入力フィールドとスタートボタンが無効化
+                answerField.setDisable(true);
+                startButton.setDisable(true);
+
               //スコアが更新
               //"CORRECT_s"以降(10文字目から)の得点をscoreに加える
               score += Integer.parseInt(message.substring(10));
@@ -138,6 +146,10 @@ public class QuizClient_fix extends Application {
               //正答を表示
               //"ANSWER_s "以降(9文字目から)の正答
               questionArea.setText("正解者が出ました\n正解は\n\n" + message.substring(9)+"\n\nです");
+              
+              //回答入力フィールドとスタートボタンが無効化
+              answerField.setDisable(true);
+              startButton.setDisable(true);
 
               //受信したメッセージが"WRONG_s "で始まる場合
             }else if(message.startsWith("WRONG_s ")){
