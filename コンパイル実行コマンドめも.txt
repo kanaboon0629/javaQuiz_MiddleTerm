@@ -1,0 +1,10 @@
+javac --module-path C:\\Users\tnhf1\javafx-sdk-20.0.1\lib --add-modules javafx.controls,javafx.fxml QuizServer_fix.java
+
+java --module-path C:\\Users\tnhf1\javafx-sdk-20.0.1\lib --add-modules javafx.controls,javafx.fxml QuizServer_fix
+
+
+javac --module-path C:\\Users\tnhf1\javafx-sdk-20.0.1\lib --add-modules javafx.controls,javafx.fxml QuizClient_fix.java    
+
+java --module-path C:\\Users\tnhf1\javafx-sdk-20.0.1\lib --add-modules javafx.controls,javafx.fxml QuizClient_fix
+
+
